@@ -52,8 +52,50 @@
 
     buttons.classList.add("btn");
 
-  </script>
+    buttons.addEventListener('click', () => {
+      let newItem = userInput.value;
+      userInput.value = "";
 
+      if (newItem == "wasser" || newItem == "Wasser") {
+        let warning1 = document.createElement("h2");
+        warning1.textContent = `Ruh Siken Size Yeni Bir Mesaj Yolladı:\n"KOMÜNİST KARILARDAN UZAK DUR."`;
+        warning1.style.cssText = `
+        color: red;
+        background-color: black;
+        padding: 20px;
+        `;
+        warningHeader.appendChild(warning1);
+        newItem = "Nilay ♥ Kilian";
+      } else if (newItem == "yaren" || newItem == "Yaren") {
+        alert("LAN OLUM KAFAYI MI YEDİN AMK");
+        newItem = "Araba Sapığı";
+      };
+
+      let listItem = document.createElement("li");
+
+      let liText = document.createElement("span");
+      liText.textContent = newItem;
+
+      let deleteButton = document.createElement("button");
+      deleteButton.textContent = "Delete";
+
+      listItem.appendChild(liText);
+      listItem.appendChild(deleteButton);
+
+      list.appendChild(listItem);
+
+
+      deleteButton.addEventListener("click", () => {
+        list.removeChild(listItem);
+
+      });
+
+
+      userInput.focus();
+
+    });
+
+  </script>
 </body>
 
 </html>
